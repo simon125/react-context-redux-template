@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * Stwórz komponent typu counter zgodnie z desginem dostępnym w folderze designs
@@ -20,9 +20,29 @@ import React from "react";
  */
 
 export const Counter = () => {
+  const [counter, setCounter] = useState(0);
+  const [custom, setCustom] = useState(0);
+
   return (
-    <div>
-      <p>Miejsce na Apke counter</p>
-    </div>
+    <>
+      <p>Counter</p>
+      <div style={{ display: "flex", gap: 20 }}>
+        <button onClick={() => setCounter(counter + 1)}>+1</button>
+        <input type="text" value={counter} readOnly />
+        <button onClick={() => setCounter(counter - 1)}>-1</button>
+        <input
+          type="text"
+          value={custom}
+          onChange={({ target }) => setCustom(target.value)}
+        />
+        <button
+          onClick={() => {
+            setCounter(counter + parseInt(custom));
+          }}
+        >
+          Calculate
+        </button>
+      </div>
+    </>
   );
 };

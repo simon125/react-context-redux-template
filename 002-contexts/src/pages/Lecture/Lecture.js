@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { GrandParentA } from "./components/GrandParentA";
 
 /**
  * Przygotuj strukture komponentową zgodną z designem (folder designs)
@@ -14,15 +15,18 @@ import React from "react";
  *
  * Pytanie rekrutacyjne:
  * ============================================
- * Efekt który osiągniemy nazywa się ........ .
+ * Efekt który osiągniemy nazywa się props drilling .
  * ============================================
  */
 
 export const Lecture = () => {
+  const [counter, setCounter] = useState(10);
+
   return (
     <article>
       Lecture: <br />
-      <b>Wartość propsów: </b>
+      <b>Wartość propsów: </b> {counter}
+      <GrandParentA test={counter} setCounter={setCounter} />
     </article>
   );
 };

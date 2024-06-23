@@ -1,6 +1,7 @@
 import { Counter } from "./pages/001_Counter/Counter";
 import { Calculator } from "./pages/002_Calculator/Calculator";
 import { Todolist } from "./pages/003_Todolist/Todolist";
+import { Lecture } from "./pages/000_Lecture/Lecture";
 
 export const App = () => {
   return (
@@ -8,6 +9,7 @@ export const App = () => {
       <article>
         <h2>Lecture</h2>
         <p>Miejsce na komponent z części wykładowej</p>
+        <Lecture />
       </article>
 
       <article>

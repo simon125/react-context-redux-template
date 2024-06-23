@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * Stwórz apkę typu kalkulator na podstawie designu dostępnego w folderze designs
@@ -34,9 +34,55 @@ import React from "react";
  */
 
 export const Calculator = () => {
+  const [number1, setNumber1] = useState(0);
+  const [number2, setNumber2] = useState(0);
+  const [operation, setOperation] = useState("");
+  const [result, setResult] = useState("");
+
+  const handleCalculateClick = () => {
+    let calulatedResult = "";
+    if (operation === "+") {
+      calulatedResult = parseInt(number1) + parseInt(number2);
+    } else if (operation === "-") {
+      calulatedResult = parseInt(number1) - parseInt(number2);
+    } else if (operation === "*") {
+      calulatedResult = parseInt(number1) * parseInt(number2);
+    } else {
+      calulatedResult = parseInt(number1) / parseInt(number2);
+    }
+
+    setResult(calulatedResult);
+  };
+
   return (
     <div>
-      <p>Miejsce na kalkulator</p>
+      <p>Calculator</p>
+      <div style={{ display: "flex", gap: 20 }}>
+        <input
+          type="number"
+          value={number1}
+          onChange={(event) => setNumber1(event.target.value)}
+        />
+        <select
+          value={operation}
+          onChange={(event) => setOperation(event.target.value)}
+        >
+          <option value="" hidden>
+            Select operation
+          </option>
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+        </select>
+        <input
+          type="number"
+          value={number2}
+          onChange={(event) => setNumber2(event.target.value)}
+        />
+        <button onClick={handleCalculateClick}>Calculate</button>
+      </div>
+      <input type="text" readOnly value={result} />
     </div>
   );
 };

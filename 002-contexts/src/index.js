@@ -4,12 +4,15 @@ import { App } from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 import "@picocss/pico";
+import { LectureContextProvider } from "./contexts/LectureContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  // <React.StrictMode>
+  <BrowserRouter>
+    <LectureContextProvider>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </LectureContextProvider>
+  </BrowserRouter>
+  // </React.StrictMode>
 );
