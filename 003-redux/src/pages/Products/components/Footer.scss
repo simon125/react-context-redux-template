@@ -1,0 +1,23 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+  padding: 20px;
+
+  p {
+    margin: 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .link {
+    width: fit-content;
+  }
+}
