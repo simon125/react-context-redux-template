@@ -8,6 +8,7 @@ export const Header = () => {
         Na naszej stronie znajdziesz parę produktów które możesz kupić. Dla
         ciekawskich ten sklep jest stworzony w reakcie i reduxie
       </p>
+      <input type="text" placeholder="Search" />
     </article>
   );
 };

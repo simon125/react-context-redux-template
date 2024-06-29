@@ -13,6 +13,7 @@ const ProfileCard = (props) => {
 
 export const ProductsList = () => {
   const [products, setProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
   /**
    * 1. sposób na pobieranie danych przy użyciu async/await
@@ -56,9 +57,9 @@ export const ProductsList = () => {
   return (
     <article className="products-list-container">
       {/* <ProfileCard name="test" children="Trelemorele" /> */}
-      {/* <ProfileCard name="hej kup se klej">
+      <ProfileCard name="hej kup se klej">
         <span style={{ color: "pink" }}>Hello wrold</span>
-      </ProfileCard> */}
+      </ProfileCard>
       {/* <ul>
         {products.map((product) => (
           <li key={product.id}>
@@ -67,7 +68,12 @@ export const ProductsList = () => {
         ))}
       </ul> */}
       {products.map((product) => (
-        <Product key={product.id} product={product} />
+        <Product
+          key={product.id}
+          product={product}
+          onAddToCartClick={setSelectedProducts}
+          selectedProducts={selectedProducts}
+        />
       ))}
     </article>
   );

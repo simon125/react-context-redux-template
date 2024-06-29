@@ -26,29 +26,27 @@ import { ShoppingCartContext } from "../../../contexts/ShoppingCartContext";
  */
 
 export const Product = (props) => {
-  const rozpropagowanyObiekt = useContext(ShoppingCartContext);
-  // rozpropagowanyObiekt.selectedProducts
-  // rozpropagowanyObiekt.setSelectedProducst
-
+  const test = useContext(ShoppingCartContext);
+  console.log(test);
   // <Product
   //   key={product.id}
   //   product={product}
+  //   onAddToCartClick={setSelectedProducts}
+  //   selectedProducts={selectedProducts}
   //  />
 
   // Zablokuj przycisk w sytuacji gdy produkt jest już w koszyku
   // const isProductInCart = props.selectedProducts.some(
   //   (product) => product.id === props.product.id
   // );
-
   const isProductInCart =
-    rozpropagowanyObiekt.selectedProducts.filter(
-      (product) => product.id === props.product.id
-    ).length > 0;
+    props.selectedProducts.filter((product) => product.id === props.product.id)
+      .length > 0;
 
   const { title, price, thumbnail } = props.product;
 
   const handleClick = () => {
-    rozpropagowanyObiekt.addProductToCart(props.product);
+    props.onAddToCartClick((prevState) => [...prevState, props.product]);
   };
 
   return (
