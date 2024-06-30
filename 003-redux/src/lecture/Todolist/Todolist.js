@@ -1,16 +1,24 @@
 import React from "react";
 import { TodoForm } from "./components/TodoForm";
 import { TodoTable } from "./components/TodoTable";
-import { Link } from "react-router-dom";
+import { removeCompleted } from "../../slices/todolistSlice";
+import { useDispatch } from "react-redux";
 
 export const Todolist = () => {
+  const dispatch = useDispatch();
+
   return (
     <div>
-      <Link to="/counter">Counter</Link>
       <TodoForm />
       <TodoTable />
       <article>
-        <button>Usuń zadania skończone</button>
+        <button
+          onClick={() => {
+            dispatch(removeCompleted());
+          }}
+        >
+          Usuń zadania skończone
+        </button>
       </article>
     </div>
   );
