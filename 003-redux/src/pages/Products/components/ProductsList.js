@@ -3,20 +3,9 @@ import "./ProductsList.scss";
 import { Product } from "./Product";
 
 export const ProductsList = () => {
-  const [products, setProducts] = useState([]);
+  const [products] = useState([]);
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        /*
-        zwerfyikuj co jest w konsoli - co się pobiera - następnie przypisz dane (tablice produktów)
-        do stanu products
-        */
-        setProducts(data.products);
-        console.log(data);
-      });
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <article className="products-list-container">

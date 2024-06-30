@@ -1,12 +1,8 @@
 import React from "react";
 import "./Product.scss";
-import { addProduct } from "../../../store/shoppingCartSlice";
-import { useDispatch } from "react-redux";
 
 export const Product = (props) => {
   const { product } = props;
-
-  const dispatch = useDispatch();
 
   /**
    * sprawdź czy w storze istnieje już element który też jest dostepny w propsach
@@ -15,13 +11,7 @@ export const Product = (props) => {
    */
   const isAddedToCart = false;
 
-  const handleAddProductClick = () => {
-    /**
-     * dodaj produkt do stora
-     */
-
-    dispatch(addProduct(product));
-  };
+  const handleAddProductClick = () => {};
 
   return (
     <div className="product-container">
